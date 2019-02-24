@@ -11,9 +11,11 @@ public class CentroJuego : MonoBehaviour
         Fase2
     };
     public static EstadoJuego estado;
-    public GameObject[] bloques = new GameObject[2];
+    public GameObject bloque;
     GameObject plataforma;
-    int count = 20;
+    float posicionY = -3.805211f;
+    int count = 20, cantidadBloques = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,14 +31,21 @@ public class CentroJuego : MonoBehaviour
                 if (count == 0)
                 {
                     count = 20;
-                    plataforma = Instantiate(bloques[0], new Vector3(14.24619f, -3.805211f), Quaternion.identity);
+                    plataforma = Instantiate(bloque, new Vector3(14.24619f, posicionY), Quaternion.identity);
                     //plataforma.transform.Translate();
                     plataforma.GetComponent<Rigidbody>().AddForce(new Vector3(-10, 0), ForceMode.Impulse);
+                    cantidadBloques--;
+                    if (cantidadBloques == 0)
+                    {
+                        cantidadBloques = Random.Range(5, 8);
+                        posicionY = Random.Range(-4, 2);
+                    }
                 }
                 else
                 {
                     count--;
                 }
+
                 break;
 
             case EstadoJuego.Fase2:

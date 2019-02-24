@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloques:
-  - {fileID: 5732601450887077695, guid: a47589a75ae8a9147a5f7d8a0fc9bbf0, type: 3}
+  - {fileID: 5482689570933110310, guid: 6d9c83fbaee79d64085889a779d50293, type: 3}
   - {fileID: 5482689570933110310, guid: 6d9c83fbaee79d64085889a779d50293, type: 3}
 --- !u!1 &1303504085
 GameObject:
