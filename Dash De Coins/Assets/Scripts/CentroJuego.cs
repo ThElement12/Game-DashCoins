@@ -14,7 +14,7 @@ public class CentroJuego : MonoBehaviour
     public GameObject bloque;
     GameObject plataforma;
     float posicionY = -3.805211f;
-    int count = 30, cantidadBloques = 10;
+    int count = 20, cantidadBloques = 10;
 
     // Start is called before the first frame update
     void Start()
