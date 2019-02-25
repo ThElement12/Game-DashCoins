@@ -15,8 +15,5 @@ public class Jugador : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision, Collision collision2)
-    {
-        
-    }
+    
 }
