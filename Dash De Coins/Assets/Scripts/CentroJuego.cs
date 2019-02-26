@@ -12,9 +12,9 @@ public class CentroJuego : MonoBehaviour
     };
     public static EstadoJuego estado;
     public GameObject bloque;
-    GameObject plataforma;
-    float posicionY = -3.805211f;
-    int count = 20, cantidadBloques = 10;
+    GameObject plataforma, plataforma2;
+    float posicionY = -3.805211f, posicionY2 = -1.805211f;
+    int count = 20, cantidadBloques = 10, cantidadBloques2 = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -32,13 +32,22 @@ public class CentroJuego : MonoBehaviour
                 {
                     count = 20;
                     plataforma = Instantiate(bloque, new Vector3(14.24619f, posicionY), Quaternion.identity);
-                    //plataforma.transform.Translate();
-                    plataforma.GetComponent<Rigidbody>().AddForce(new Vector3(-10, 0), ForceMode.Impulse);
+                    plataforma.transform.Translate(new Vector3(-10 * Time.deltaTime,0));
+                   // plataforma.GetComponent<Rigidbody>().AddForce(new Vector3(-10, 0), ForceMode.Impulse);
+
+                    plataforma2 = Instantiate(bloque, new Vector3(14.24619f, posicionY2), Quaternion.identity);
+                    plataforma2.transform.Translate(new Vector3(-10 * Time.deltaTime,0));
+                 //   plataforma2.GetComponent<Rigidbody>().AddForce(new Vector3(-10, 0), ForceMode.Impulse);
+
                     cantidadBloques--;
+                    cantidadBloques2--;
                     if (cantidadBloques == 0)
                     {
                         cantidadBloques = Random.Range(5, 8);
+                        cantidadBloques2 = Random.Range(5, 8);
+
                         posicionY = Random.Range(-4, 2);
+                        posicionY2 = Random.Range(-4, 2);
                     }
                 }
                 else
@@ -54,4 +63,5 @@ public class CentroJuego : MonoBehaviour
 
         
     }
+    
 }

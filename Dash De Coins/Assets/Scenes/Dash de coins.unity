@@ -265,50 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloque: {fileID: 5732601450887077695, guid: a47589a75ae8a9147a5f7d8a0fc9bbf0, type: 3}
---- !u!1 &1276147264
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1276147266}
-  - component: {fileID: 1276147265}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &1276147265
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276147264}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1276147266
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276147264}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1303504085
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,15 +553,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5857892011257067, guid: 3fe9793d0dfcad6449013dc4ba50206f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.010311114
+      value: 8.71
       objectReference: {fileID: 0}
     - target: {fileID: 5857892011257067, guid: 3fe9793d0dfcad6449013dc4ba50206f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00016641617
+      value: 3.32
       objectReference: {fileID: 0}
     - target: {fileID: 5857892011257067, guid: 3fe9793d0dfcad6449013dc4ba50206f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.834727
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5857892011257067, guid: 3fe9793d0dfcad6449013dc4ba50206f, type: 3}
       propertyPath: m_LocalRotation.x
