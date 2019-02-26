@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2472308702820846535}
   - component: {fileID: 5268225515352903926}
   - component: {fileID: 5085822631946614483}
+  - component: {fileID: 7544622117846552306}
   m_Layer: 0
   m_Name: scottpilgrim_multiple_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,3 +131,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &7544622117846552306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5085822631946614482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea617d63218b99449a57877d9dbe780e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

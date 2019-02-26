@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CentroJuego : MonoBehaviour
 {
-
+    public static int cont = 1;
     public enum EstadoJuego
     {
         Fase1,
