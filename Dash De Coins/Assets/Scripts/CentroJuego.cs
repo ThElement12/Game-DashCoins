@@ -5,6 +5,7 @@ using UnityEngine;
 public class CentroJuego : MonoBehaviour
 {
     public static int cont = 1;
+    public static int monedas = 0;
     public enum EstadoJuego
     {
         Fase1,

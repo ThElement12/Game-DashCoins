@@ -29,7 +29,7 @@ public class Jugador : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && CentroJuego.cont == 1)
         {
             CentroJuego.cont = 0;
-            gameObject.transform.Rotate(new Vector3(0, 180f, 180f));
+            gameObject.GetComponent<SpriteRenderer>().flipY = !gameObject.GetComponent<SpriteRenderer>().flipY;
             if (Physics.gravity.y > 0)
             {
                 // Normal gravity so downward force of -9.8
