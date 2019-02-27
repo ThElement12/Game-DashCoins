@@ -11,10 +11,13 @@ public class CentroJuego : MonoBehaviour
         Fase2
     };
     public static EstadoJuego estado;
+    bool primeraFila = true;
     public GameObject bloque;
     GameObject plataforma, plataforma2;
     float posicionY = -3.805211f, posicionY2 = -1.805211f;
     int count = 20, cantidadBloques = 10, cantidadBloques2 = 10;
+    public static int puntaje = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,14 +36,13 @@ public class CentroJuego : MonoBehaviour
                     count = 20;
 
                     plataforma = Instantiate(bloque, new Vector3(14.24619f, posicionY), Quaternion.identity);
-                    
-                    // StartCoroutine(movimiento(plataforma));
-                    //plataforma.GetComponent<Rigidbody>().AddForce(new Vector3(-10, 0), ForceMode.Impulse);
 
-                    plataforma2 = Instantiate(bloque, new Vector3(14.24619f, posicionY2), Quaternion.identity);
-                    //StartCoroutine(movimiento(plataforma2));
-                    //plataforma2.GetComponent<Rigidbody>().AddForce(new Vector3(-10, 0), ForceMode.Impulse);
-                    
+                    if (!primeraFila)
+                    {
+                        plataforma2 = Instantiate(bloque, new Vector3(14.24619f, posicionY2), Quaternion.identity);
+
+                    }
+
                     cantidadBloques--;
                     cantidadBloques2--;
 
@@ -48,9 +50,10 @@ public class CentroJuego : MonoBehaviour
                     {
                         cantidadBloques = Random.Range(5, 8);
                         cantidadBloques2 = Random.Range(5, 8);
-
+                    
                         posicionY = Random.Range(-4, 2);
-                        posicionY2 = Random.Range(-4, 2);
+                        posicionY2 = Random.Range(2,4);
+                        primeraFila = false;
                     }
                 }
                 else
