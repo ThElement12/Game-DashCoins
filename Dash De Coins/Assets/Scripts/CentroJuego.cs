@@ -33,11 +33,12 @@ public class CentroJuego : MonoBehaviour
                     count = 20;
 
                     plataforma = Instantiate(bloque, new Vector3(14.24619f, posicionY), Quaternion.identity);
-                    StartCoroutine(movimiento(plataforma));
+                    
+                    // StartCoroutine(movimiento(plataforma));
                     //plataforma.GetComponent<Rigidbody>().AddForce(new Vector3(-10, 0), ForceMode.Impulse);
 
                     plataforma2 = Instantiate(bloque, new Vector3(14.24619f, posicionY2), Quaternion.identity);
-                    StartCoroutine(movimiento(plataforma2));
+                    //StartCoroutine(movimiento(plataforma2));
                     //plataforma2.GetComponent<Rigidbody>().AddForce(new Vector3(-10, 0), ForceMode.Impulse);
                     
                     cantidadBloques--;
@@ -65,22 +66,5 @@ public class CentroJuego : MonoBehaviour
 
         
     }
-    public IEnumerator movimiento(GameObject plataforma)
-    {
-        while (plataforma.transform.position.x >= -17.06028f)
-        {
-
-            plataforma.transform.Translate(new Vector3(-10 * Time.deltaTime,0));
-
-            yield return null;
-        }
-      //  if()
-        {
-          //  Destroy(plataforma);
-            
-        }
-        
-
-
-    }    
+      
 }

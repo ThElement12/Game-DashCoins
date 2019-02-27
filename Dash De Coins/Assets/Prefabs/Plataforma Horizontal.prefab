@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5732601450887077665}
   - component: {fileID: 8847633692957687833}
   - component: {fileID: 7154112750280257129}
+  - component: {fileID: 1076453456755251946}
   m_Layer: 0
   m_Name: Plataforma Horizontal
   m_TagString: Plataforma
@@ -102,5 +103,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd40f3d42c5b20143bf02871bce65d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1076453456755251946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5732601450887077695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec59aa259787ec4f992ab1d58806322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
