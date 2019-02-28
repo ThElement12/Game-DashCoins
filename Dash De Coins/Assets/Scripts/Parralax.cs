@@ -11,11 +11,7 @@ public class Parralax : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //actualBG = Instantiate(background);
-        //nextBG = Instantiate(background, new Vector3(27.19f,0), Quaternion.identity);
-
-        //actualPF = Instantiate(platform);
-        //nextPF = Instantiate(platform, new Vector3(27.74f, -5.37f), Quaternion.identity);
+        
     }
 
     // Update is called once per frame

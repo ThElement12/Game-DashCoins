@@ -18,17 +18,21 @@ public class MovimientoPlataforma : MonoBehaviour
         if(probMoneda < 3)
         {
 
-            relatividad = GameObject.FindGameObjectWithTag("Player").transform.position.y - gameObject.transform.position.y;
+            if(GameObject.FindGameObjectWithTag("Player") != null)
+            {
+                relatividad = GameObject.FindGameObjectWithTag("Player").transform.position.y - gameObject.transform.position.y;
 
-            if(relatividad < 0)
-            {
-                moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1), Quaternion.identity);
+                if(relatividad < 0)
+                {
+                    moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1), Quaternion.identity);
+                }
+                else
+                {
+                    moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1), Quaternion.identity);
+                }
+                moneda.transform.parent = gameObject.transform;
             }
-            else
-            {
-                moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1), Quaternion.identity);
-            }
-            moneda.transform.parent = gameObject.transform;
+            
         }
     }
 

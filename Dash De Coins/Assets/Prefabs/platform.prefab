@@ -92,5 +92,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb37e98c01466ac4ea8b9d54bf8cd168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadPF: -5
+  velocidadPF: -3
   deleteLimit: -28
