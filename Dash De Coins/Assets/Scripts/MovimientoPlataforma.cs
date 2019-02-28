@@ -7,7 +7,8 @@ public class MovimientoPlataforma : MonoBehaviour
     public GameObject coin;
     GameObject moneda;
     int probMoneda;
-    float relatividad;
+    float relatividad,aceleracion = 0.000000000003f;
+
 
 
     public static float velocidad = -10;
@@ -49,5 +50,6 @@ public class MovimientoPlataforma : MonoBehaviour
             Destroy(gameObject);
             
         }
+        velocidad -= aceleracion;
     }
 }

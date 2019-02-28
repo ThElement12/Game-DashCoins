@@ -27,6 +27,11 @@ public class CentroJuego : MonoBehaviour
     {
         estado = EstadoJuego.Fase1;
         Instantiate(background);
+        for(int i = 1; i < 50; i+= 5)
+        {
+            Instantiate(bloque,new Vector3(-10.24619f + i,posicionY),Quaternion.identity);
+        }
+        
         //platCount = 0;
     }
 
@@ -68,7 +73,7 @@ public class CentroJuego : MonoBehaviour
                 if (platCount == 0)
                 {
                     platCount = 300;
-                    Instantiate(background, new Vector3(26.7f, -7.37f, 5), Quaternion.identity);
+                    Instantiate(background, new Vector3(26.7f, -7.37f, 5f), Quaternion.identity);
                 }
                 else if (platCount > 0)
                 {
