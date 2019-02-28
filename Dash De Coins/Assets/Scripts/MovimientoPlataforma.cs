@@ -37,11 +37,6 @@ public class MovimientoPlataforma : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void FixedUpdate()
     {
         gameObject.transform.Translate(new Vector3(velocidad, 0) * Time.deltaTime);
