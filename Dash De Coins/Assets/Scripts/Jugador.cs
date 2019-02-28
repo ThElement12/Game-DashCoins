@@ -18,7 +18,7 @@ public class Jugador : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipY = !gameObject.GetComponent<SpriteRenderer>().flipY;
             if (Physics.gravity.y > 0)
             {
-                // Normal gravity so downward force of -9.8
+                // Normal gravity
                 Physics.gravity = new Vector3(0, -gravity, 0);
             }
             else

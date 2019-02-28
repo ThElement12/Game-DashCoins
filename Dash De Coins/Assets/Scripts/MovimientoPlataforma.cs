@@ -7,8 +7,7 @@ public class MovimientoPlataforma : MonoBehaviour
     public GameObject coin;
     GameObject moneda;
     int probMoneda;
-    float relatividad,aceleracion = 0.000000000003f;
-
+    float relatividad, aceleracion = 0.000000000003f;
 
 
     public static float velocidad = -10;

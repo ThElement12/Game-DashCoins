@@ -6,6 +6,12 @@ public class CentroJuego : MonoBehaviour
 {
     public static int cont = 1;
     public static int monedas = 0;
+    public TextMesh monedaCant;
+    float timer;
+    float distance, distance2;
+    public TextMesh Mytimer;
+    //const int ACELEPASTTIME = 2;
+    float aceleracion = 10f;
     public enum EstadoJuego
     {
         Fase1,
@@ -27,6 +33,7 @@ public class CentroJuego : MonoBehaviour
     {
         estado = EstadoJuego.Fase1;
         Instantiate(background);
+        timer = Time.deltaTime;
         for(int i = 1; i < 50; i+= 5)
         {
             Instantiate(bloque,new Vector3(-10.24619f + i,posicionY),Quaternion.identity);
@@ -79,6 +86,10 @@ public class CentroJuego : MonoBehaviour
                 {
                     platCount--;
                 }
+                monedaCant.text = monedas.ToString();
+                //timer = Time.deltaTime;
+                //distance += 0 + (aceleracion * Mathf.Pow(timer,2))/2;
+                //Mytimer.text = distance.ToString();
                 break;
 
             case EstadoJuego.Fase2:
@@ -87,5 +98,15 @@ public class CentroJuego : MonoBehaviour
 
         
     }
-      
+    private void FixedUpdate()
+    {
+        if (aceleracion < 120)
+            aceleracion++;//= ACELEPASTTIME;
+
+        timer = Time.fixedDeltaTime;
+        distance += ((aceleracion * Mathf.Pow(timer, 2)) / 2);
+        distance2 = (int)distance;
+        Mytimer.text = distance2.ToString();
+    }
+
 }
