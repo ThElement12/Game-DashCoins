@@ -181,7 +181,6 @@ GameObject:
   - component: {fileID: 1026217126}
   - component: {fileID: 1026217125}
   - component: {fileID: 1026217128}
-  - component: {fileID: 1026217129}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -265,24 +264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2001ddc19687e84bb17a3a27975f0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloque: {fileID: 5732601450887077695, guid: a47589a75ae8a9147a5f7d8a0fc9bbf0, type: 3}
---- !u!114 &1026217129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026217124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb37e98c01466ac4ea8b9d54bf8cd168, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platform: {fileID: 7806631054051117034, guid: 127f2d7d54ed2584a9bdbf5b25ac1c0c,
+  background: {fileID: 7806631054051117034, guid: 127f2d7d54ed2584a9bdbf5b25ac1c0c,
     type: 3}
-  velocidadPF: -5
-  limit: -0.3499999
-  deleteLimit: -28.42
+  bloque: {fileID: 5732601450887077695, guid: a47589a75ae8a9147a5f7d8a0fc9bbf0, type: 3}
 --- !u!1 &1303504085
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +532,7 @@ PrefabInstance:
     - target: {fileID: 3896188324026108207, guid: 11deaecc1e48fb74596b727bc2932745,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3896188324026108207, guid: 11deaecc1e48fb74596b727bc2932745,
         type: 3}

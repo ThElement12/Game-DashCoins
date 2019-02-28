@@ -12,9 +12,11 @@ public class CentroJuego : MonoBehaviour
         Fase2
     };
     public static EstadoJuego estado;
-    bool primeraFila = true;
+    public GameObject background;
     public GameObject bloque;
+    int platCount = 0;
     GameObject plataforma, plataforma2;
+    bool primeraFila = true;
     float posicionY = -3.805211f, posicionY2 = -1.805211f;
     int count = 20, cantidadBloques = 10, cantidadBloques2 = 10;
     public static int puntaje = 0;
@@ -24,6 +26,8 @@ public class CentroJuego : MonoBehaviour
     void Start()
     {
         estado = EstadoJuego.Fase1;
+        Instantiate(background);
+        //platCount = 0;
     }
 
     // Update is called once per frame
@@ -61,7 +65,15 @@ public class CentroJuego : MonoBehaviour
                 {
                     count--;
                 }
-
+                if (platCount == 0)
+                {
+                    platCount = 300;
+                    Instantiate(background, new Vector3(26.7f, -7.37f, 5), Quaternion.identity);
+                }
+                else if (platCount > 0)
+                {
+                    platCount--;
+                }
                 break;
 
             case EstadoJuego.Fase2:
