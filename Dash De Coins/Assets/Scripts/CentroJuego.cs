@@ -35,16 +35,14 @@ public class CentroJuego : MonoBehaviour
         estado = EstadoJuego.Fase1;
         Instantiate(background);
         timer = Time.deltaTime;
-        for(int i = 1; i < 50; i+= 5)
+        for(int i = 1, j = 1; i < 50; i+= 5, j+=2)
         {
             Instantiate(bloque,new Vector3(-10.24619f + i,posicionY),Quaternion.identity);
             if(Random.Range(1,3) < 2)
             {
-                Instantiate(nube[Random.Range(0,1)], new Vector3(-10.25f + i, posicionY + Random.Range(2, 3)), Quaternion.identity);
+                Instantiate(nube[Random.Range(0,1)], new Vector3(-10.25f + i, posicionY + Random.Range(2, 3), 2.5f), Quaternion.identity);
             }
             
-
-        
         }
 
         
