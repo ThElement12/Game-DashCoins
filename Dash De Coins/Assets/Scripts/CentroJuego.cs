@@ -18,6 +18,7 @@ public class CentroJuego : MonoBehaviour
         Fase2
     };
     public static EstadoJuego estado;
+    public GameObject []nube = new GameObject[2];
     public GameObject background;
     public GameObject bloque;
     int platCount = 0;
@@ -37,7 +38,15 @@ public class CentroJuego : MonoBehaviour
         for(int i = 1; i < 50; i+= 5)
         {
             Instantiate(bloque,new Vector3(-10.24619f + i,posicionY),Quaternion.identity);
+            if(Random.Range(1,3) < 2)
+            {
+                Instantiate(nube[Random.Range(0,1)], new Vector3(-10.25f + i, posicionY + Random.Range(2, 3)), Quaternion.identity);
+            }
+            
+
+        
         }
+
         
         //platCount = 0;
     }
@@ -86,7 +95,7 @@ public class CentroJuego : MonoBehaviour
                 {
                     platCount--;
                 }
-                monedaCant.text = monedas.ToString();
+                monedaCant.text = "Monedas: " + monedas.ToString();
                 //timer = Time.deltaTime;
                 //distance += 0 + (aceleracion * Mathf.Pow(timer,2))/2;
                 //Mytimer.text = distance.ToString();
@@ -106,7 +115,7 @@ public class CentroJuego : MonoBehaviour
         timer = Time.fixedDeltaTime;
         distance += ((aceleracion * Mathf.Pow(timer, 2)) / 2);
         distance2 = (int)distance;
-        Mytimer.text = distance2.ToString();
+        Mytimer.text = "Puntos: " + distance2.ToString();
     }
 
 }
