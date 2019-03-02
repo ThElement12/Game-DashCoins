@@ -87,11 +87,11 @@ public class CentroJuego : MonoBehaviour
                 else
                 {
                     count--;
-                }
+                }*/
                 if (platCount == 0)
                 {
                     platCount = 300;
-                    Instantiate(background, new Vector3(26.7f, -7.37f, 5f), Quaternion.identity);
+                    Instantiate(background, new Vector3(33.86f, -16.62f, 5f), Quaternion.identity);
                 }
                 else if (platCount > 0)
                 {
@@ -100,7 +100,7 @@ public class CentroJuego : MonoBehaviour
                 monedaCant.text = "Monedas: " + monedas.ToString();
                 //timer = Time.deltaTime;
                 //distance += 0 + (aceleracion * Mathf.Pow(timer,2))/2;
-                //Mytimer.text = distance.ToString();*/
+                //Mytimer.text = distance.ToString();
                 break;
 
             case EstadoJuego.Fase2:
