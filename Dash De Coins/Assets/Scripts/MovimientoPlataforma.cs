@@ -14,7 +14,7 @@ public class MovimientoPlataforma : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        probMoneda = Random.Range(1, 5);
+       /* probMoneda = Random.Range(1, 5);
         if(probMoneda < 3)
         {
 
@@ -33,17 +33,35 @@ public class MovimientoPlataforma : MonoBehaviour
                 moneda.transform.parent = gameObject.transform;
             }
             
-        }
+        }*/
     }
 
     private void FixedUpdate()
     {
-        gameObject.transform.Translate(new Vector3(velocidad, 0) * Time.deltaTime);
-        if(gameObject.transform.position.x <= -17.06028f)
-        {
-            Destroy(gameObject);
-            
+        if(gameObject.tag == "Plataforma 90"){
+            gameObject.transform.Translate(new Vector3(0, velocidad) * Time.deltaTime);
+
+            if (gameObject.transform.position.y <= -17.06028f)
+            {
+                Destroy(gameObject);
+
+            }
+            velocidad -= aceleracion;
+
         }
-        velocidad -= aceleracion;
+        else
+        {
+            gameObject.transform.Translate(new Vector3(velocidad, 0) * Time.deltaTime);
+
+            if (gameObject.transform.position.x <= -17.06028f)
+            {
+                Destroy(gameObject);
+
+            }
+            velocidad -= aceleracion;
+
+        }
+        
+        
     }
 }

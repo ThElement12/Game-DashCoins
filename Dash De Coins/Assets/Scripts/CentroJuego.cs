@@ -21,6 +21,9 @@ public class CentroJuego : MonoBehaviour
     public GameObject []nube = new GameObject[2];
     public GameObject background;
     public GameObject bloque;
+    public GameObject bloqueAlreves;
+    public GameObject bloqueVertical;
+
     int platCount = 0;
     GameObject plataforma, plataforma2;
     bool primeraFila = true;
@@ -35,7 +38,7 @@ public class CentroJuego : MonoBehaviour
         estado = EstadoJuego.Fase1;
         Instantiate(background);
         timer = Time.deltaTime;
-        for(int i = 1, j = 1; i < 50; i+= 5, j+=2)
+       /* for(int i = 1, j = 1; i < 50; i+= 5, j+=2)
         {
             Instantiate(bloque,new Vector3(-10.24619f + i,posicionY),Quaternion.identity);
             if(Random.Range(1,3) < 2)
@@ -43,7 +46,8 @@ public class CentroJuego : MonoBehaviour
                 Instantiate(nube[Random.Range(0,1)], new Vector3(-10.25f + i, posicionY + Random.Range(2, 3), 2.5f), Quaternion.identity);
             }
             
-        }
+        }*/
+        CargarMapa();
 
         
         //platCount = 0;
@@ -55,7 +59,7 @@ public class CentroJuego : MonoBehaviour
         switch (estado)
         {
             case EstadoJuego.Fase1:
-                if (count == 0)
+              /*  if (count == 0)
                 {
                     count = 20;
 
@@ -96,7 +100,7 @@ public class CentroJuego : MonoBehaviour
                 monedaCant.text = "Monedas: " + monedas.ToString();
                 //timer = Time.deltaTime;
                 //distance += 0 + (aceleracion * Mathf.Pow(timer,2))/2;
-                //Mytimer.text = distance.ToString();
+                //Mytimer.text = distance.ToString();*/
                 break;
 
             case EstadoJuego.Fase2:
@@ -114,6 +118,46 @@ public class CentroJuego : MonoBehaviour
         distance += ((aceleracion * Mathf.Pow(timer, 2)) / 2);
         distance2 = (int)distance;
         Mytimer.text = "Puntos: " + distance2.ToString();
+    }
+    void CargarMapa()
+    {
+        var contenido = Resources.Load<TextAsset>("Mapa 1");
+        Quaternion rotacion;
+        float i = 0, j = 0;
+        GameObject nuevaCelda = null;
+
+
+        foreach (string lineaActual in contenido.text.Split('\n'))
+        {
+            foreach(char celdaActual in lineaActual)
+            {
+                switch (celdaActual)
+                {
+                    case '_':
+                        nuevaCelda = bloque;
+                        rotacion = bloque.transform.rotation;
+                        break;
+                    case '|':
+                        nuevaCelda = bloqueVertical;
+                        rotacion = bloqueVertical.transform.rotation;
+                        break;
+                    case '-':
+                        nuevaCelda = bloqueAlreves;
+                        rotacion = bloqueAlreves.transform.rotation;
+                        break;
+
+                    default:
+                        j += 6;
+                        continue;
+                }
+                
+                nuevaCelda = Instantiate(nuevaCelda, new Vector3(j, -i), rotacion);
+                j += 6;
+            }
+            j = 0;
+            i+= 3;
+
+        }
     }
 
 }
