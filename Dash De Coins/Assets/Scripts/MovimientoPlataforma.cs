@@ -39,9 +39,9 @@ public class MovimientoPlataforma : MonoBehaviour
     private void FixedUpdate()
     {
         if(gameObject.tag == "Plataforma 90"){
-            gameObject.transform.Translate(new Vector3(0, velocidad) * Time.deltaTime);
+            gameObject.transform.Translate(new Vector3(0,-velocidad) * Time.deltaTime);
 
-            if (gameObject.transform.position.y <= -17.06028f)
+            if (gameObject.transform.position.x <= -17.06028f)
             {
                 Destroy(gameObject);
 
@@ -49,6 +49,18 @@ public class MovimientoPlataforma : MonoBehaviour
             velocidad -= aceleracion;
 
         }
+        else if(gameObject.tag == "Plataforma Inversa")
+        {
+            gameObject.transform.Translate(new Vector3(-velocidad, 0) * Time.deltaTime);
+
+            if (gameObject.transform.position.x <= -17.06028f)
+            {
+                Destroy(gameObject);
+
+            }
+            velocidad -= aceleracion;
+        }
+
         else
         {
             gameObject.transform.Translate(new Vector3(velocidad, 0) * Time.deltaTime);

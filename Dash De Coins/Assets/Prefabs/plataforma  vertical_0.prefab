@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2993315413417716879}
   - component: {fileID: 1590839714937575156}
   - component: {fileID: 5331911929259518835}
+  - component: {fileID: 4113804740036395231}
   m_Layer: 0
   m_Name: plataforma  vertical_0
   m_TagString: Plataforma 90
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6955094318195595798}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -1.63, y: -0.06, z: 0}
-  m_LocalScale: {x: 0.372, y: 0.478, z: 1}
+  m_LocalScale: {x: 0.372, y: 0.478, z: 2.8545}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -93,3 +94,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 273295869024467371, guid: 043fea0226206114ab1c485f250af219, type: 3}
+--- !u!65 &4113804740036395231
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955094318195595798}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.140002, y: 2.3400004, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
