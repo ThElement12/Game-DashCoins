@@ -141,7 +141,7 @@ public class CentroJuego : MonoBehaviour
                         nuevaCelda = bloqueVertical;
                         rotacion = bloqueVertical.transform.rotation;
                         break;
-                    case '-':
+                    case '/':
                         nuevaCelda = bloqueAlreves;
                         rotacion = bloqueAlreves.transform.rotation;
                         break;
