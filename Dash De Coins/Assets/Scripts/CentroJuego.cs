@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CentroJuego : MonoBehaviour
 {
-    public static int cont = 1;
+
     public static int monedas = 0;
     public TextMesh monedaCant;
     float timer;
@@ -24,11 +24,9 @@ public class CentroJuego : MonoBehaviour
     public GameObject bloqueAlreves;
     public GameObject bloqueVertical;
 
+    bool rotar = false;
+
     int platCount = 0;
-    GameObject plataforma, plataforma2;
-    bool primeraFila = true;
-    float posicionY = -3.805211f, posicionY2 = -1.805211f;
-    int count = 20, cantidadBloques = 10, cantidadBloques2 = 10;
     public static int puntaje = 0;
 
 
@@ -142,17 +140,25 @@ public class CentroJuego : MonoBehaviour
                         rotacion = bloqueVertical.transform.rotation;
                         break;
                     case '/':
-                        nuevaCelda = bloqueAlreves;
-                        rotacion = bloqueAlreves.transform.rotation;
+                        nuevaCelda = bloque;
+                        rotacion = bloque.transform.rotation;
+                        rotar = true;
+                  
                         break;
 
                     default:
-                        j += 6;
+                        j += 4.25f;
                         continue;
                 }
+
                 
                 nuevaCelda = Instantiate(nuevaCelda, new Vector3(j, -i), rotacion);
-                j += 6;
+                if (rotar)
+                {
+                    nuevaCelda.GetComponent<SpriteRenderer>().flipY = true;
+                }
+                j += 4.25f;
+                rotar = false;
             }
             j = 0;
             i+= 3;

@@ -51,7 +51,7 @@ public class MovimientoPlataforma : MonoBehaviour
         }
         else if(gameObject.tag == "Plataforma Inversa")
         {
-            gameObject.transform.Translate(new Vector3(-velocidad, 0) * Time.deltaTime);
+            gameObject.transform.Translate(new Vector3(velocidad, 0) * Time.deltaTime);
 
             if (gameObject.transform.position.x <= -17.06028f)
             {
@@ -60,7 +60,6 @@ public class MovimientoPlataforma : MonoBehaviour
             }
             velocidad -= aceleracion;
         }
-
         else
         {
             gameObject.transform.Translate(new Vector3(velocidad, 0) * Time.deltaTime);

@@ -16,18 +16,20 @@ public class Jugador : MonoBehaviour
     }
     void FixedUpdate()
     {
-        cambioPosicion.x = direccion * (velocidadFinal.x * Time.deltaTime + Physics.gravity.x * (Mathf.Pow(Time.deltaTime, 2) / 2));
-        cambioPosicion.y = direccion * (velocidadFinal.y * Time.deltaTime + Physics.gravity.y * (Mathf.Pow(Time.deltaTime, 2) / 2));
+        cambioPosicion.x = velocidadFinal.x * Time.deltaTime + Physics.gravity.x * (Mathf.Pow(Time.deltaTime, 2) / 2);
+        cambioPosicion.y = velocidadFinal.y * Time.deltaTime + Physics.gravity.y * (Mathf.Pow(Time.deltaTime, 2) / 2);
+
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CentroJuego.cont = 0;
+        { 
             gameObject.GetComponent<SpriteRenderer>().flipY = !gameObject.GetComponent<SpriteRenderer>().flipY;
             direccion *= -1;
             velocidadFinal = Vector3.zero;
         }
-        gameObject.transform.Translate(cambioPosicion);
 
-        velocidadFinal += Physics.gravity * Time.deltaTime;
+        gameObject.transform.Translate(cambioPosicion);
+        velocidadFinal += direccion * Physics.gravity * Time.deltaTime;
+        
+        
           
     }
     private void OnTriggerEnter(Collider other)
@@ -43,12 +45,14 @@ public class Jugador : MonoBehaviour
 
         }
 
-    }
+    } 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Plataforma")
         {
-            velocidadFinal = Vector3.zero;  
+            velocidadFinal = Vector3.zero;
+            cambioPosicion = Vector3.zero;
+
         }
     }
 }

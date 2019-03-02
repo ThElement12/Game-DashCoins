@@ -363,8 +363,8 @@ MonoBehaviour:
   - {fileID: 1693002888642789984, guid: d4db627c2d90d8d4eaf8e1f0db1300f5, type: 3}
   background: {fileID: 7806631054051117034, guid: 127f2d7d54ed2584a9bdbf5b25ac1c0c,
     type: 3}
-  bloque: {fileID: 5732601450887077695, guid: a47589a75ae8a9147a5f7d8a0fc9bbf0, type: 3}
-  bloqueAlreves: {fileID: 5732601450887077695, guid: b88acf8b55dccac40b725b8d05258fae,
+  bloque: {fileID: 7227289652090310458, guid: a6e9da7d5a0b1a648b06cab21f802733, type: 3}
+  bloqueAlreves: {fileID: 249332535064610087, guid: b88acf8b55dccac40b725b8d05258fae,
     type: 3}
   bloqueVertical: {fileID: 6955094318195595798, guid: 6d3c8664749a74b459549f46aefe0632,
     type: 3}
