@@ -7,22 +7,18 @@ public class MovimientoPlataforma : MonoBehaviour
     public GameObject coin;
     GameObject moneda;
     int probMoneda;
-    float relatividad, aceleracion = 0.000000000003f;
-
-
+  
+    public static float aceleracion = 0.00000003f;
     public static float velocidad = -10;
     // Start is called before the first frame update
     void Start()
     {
-       /* probMoneda = Random.Range(1, 5);
-        if(probMoneda < 3)
+        if(gameObject.tag != "Plataforma 90")
         {
-
-            if(GameObject.FindGameObjectWithTag("Player") != null)
+            probMoneda = Random.Range(1, 5);
+            if (probMoneda < 3)
             {
-                relatividad = GameObject.FindGameObjectWithTag("Player").transform.position.y - gameObject.transform.position.y;
-
-                if(relatividad < 0)
+                if (gameObject.GetComponent<SpriteRenderer>().flipY)
                 {
                     moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1), Quaternion.identity);
                 }
@@ -31,11 +27,14 @@ public class MovimientoPlataforma : MonoBehaviour
                     moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1), Quaternion.identity);
                 }
                 moneda.transform.parent = gameObject.transform;
-            }
-            
-        }*/
-    }
+                
 
+            }
+        }
+        
+        
+    }
+   
     private void FixedUpdate()
     {
         if(gameObject.tag == "Plataforma 90"){
@@ -46,7 +45,7 @@ public class MovimientoPlataforma : MonoBehaviour
                 Destroy(gameObject);
 
             }
-            velocidad -= aceleracion;
+            velocidad -= aceleracion * Time.time;
 
         }
         else if(gameObject.tag == "Plataforma Inversa")
@@ -58,7 +57,7 @@ public class MovimientoPlataforma : MonoBehaviour
                 Destroy(gameObject);
 
             }
-            velocidad -= aceleracion;
+            velocidad -= aceleracion * Time.time;
         }
         else
         {
@@ -69,7 +68,7 @@ public class MovimientoPlataforma : MonoBehaviour
                 Destroy(gameObject);
 
             }
-            velocidad -= aceleracion;
+            velocidad -= aceleracion * Time.time;
 
         }
         

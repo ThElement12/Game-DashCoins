@@ -7,21 +7,17 @@ public class CentroJuego : MonoBehaviour
 
     public static int monedas = 0;
     public TextMesh monedaCant;
-    float timer;
-    float distance, distance2;
+    float distance;
     public TextMesh Mytimer;
-    //const int ACELEPASTTIME = 2;
-    float aceleracion = 10f;
+   
     public enum EstadoJuego
     {
         Fase1,
         Fase2
     };
     public static EstadoJuego estado;
-    public GameObject []nube = new GameObject[2];
     public GameObject background;
     public GameObject bloque;
-    public GameObject bloqueAlreves;
     public GameObject bloqueVertical;
 
     bool rotar = false;
@@ -35,20 +31,8 @@ public class CentroJuego : MonoBehaviour
     {
         estado = EstadoJuego.Fase1;
         Instantiate(background);
-        timer = Time.deltaTime;
-       /* for(int i = 1, j = 1; i < 50; i+= 5, j+=2)
-        {
-            Instantiate(bloque,new Vector3(-10.24619f + i,posicionY),Quaternion.identity);
-            if(Random.Range(1,3) < 2)
-            {
-                Instantiate(nube[Random.Range(0,1)], new Vector3(-10.25f + i, posicionY + Random.Range(2, 3), 2.5f), Quaternion.identity);
-            }
-            
-        }*/
         CargarMapa();
-
         
-        //platCount = 0;
     }
 
     // Update is called once per frame
@@ -57,35 +41,7 @@ public class CentroJuego : MonoBehaviour
         switch (estado)
         {
             case EstadoJuego.Fase1:
-              /*  if (count == 0)
-                {
-                    count = 20;
-
-                    plataforma = Instantiate(bloque, new Vector3(14.24619f, posicionY), Quaternion.identity);
-
-                    if (!primeraFila)
-                    {
-                        plataforma2 = Instantiate(bloque, new Vector3(14.24619f, posicionY2), Quaternion.identity);
-
-                    }
-
-                    cantidadBloques--;
-                    cantidadBloques2--;
-
-                    if (cantidadBloques == 0)
-                    {
-                        cantidadBloques = Random.Range(5, 8);
-                        cantidadBloques2 = Random.Range(5, 8);
-                    
-                        posicionY = Random.Range(-4, 2);
-                        posicionY2 = Random.Range(2,4);
-                        primeraFila = false;
-                    }
-                }
-                else
-                {
-                    count--;
-                }*/
+              
                 if (platCount == 0)
                 {
                     platCount = 300;
@@ -109,17 +65,16 @@ public class CentroJuego : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (aceleracion < 120)
-            aceleracion++;//= ACELEPASTTIME;
 
-        timer = Time.fixedDeltaTime;
-        distance += ((aceleracion * Mathf.Pow(timer, 2)) / 2);
-        distance2 = (int)distance;
-        Mytimer.text = "Puntos: " + distance2.ToString();
+        distance += -MovimientoPlataforma.velocidad;
+        Mytimer.text = "Puntos: " + ((int)distance).ToString();
     }
     void CargarMapa()
     {
-        var contenido = Resources.Load<TextAsset>("Mapa 1");
+
+        var contenido = Resources.Load<TextAsset>("Mapa 2"); //+ Random.Range(2,3).ToString());
+        
+        
         Quaternion rotacion;
         float i = 0, j = 0;
         GameObject nuevaCelda = null;

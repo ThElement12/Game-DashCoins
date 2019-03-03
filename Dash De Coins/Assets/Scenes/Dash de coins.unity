@@ -358,14 +358,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monedaCant: {fileID: 368546694}
   Mytimer: {fileID: 1099667642}
-  nube:
-  - {fileID: 62616815594242893, guid: 91f398032f50f6142b93cfa17e42cc51, type: 3}
-  - {fileID: 1693002888642789984, guid: d4db627c2d90d8d4eaf8e1f0db1300f5, type: 3}
   background: {fileID: 7806631054051117034, guid: 127f2d7d54ed2584a9bdbf5b25ac1c0c,
     type: 3}
   bloque: {fileID: 7227289652090310458, guid: a6e9da7d5a0b1a648b06cab21f802733, type: 3}
-  bloqueAlreves: {fileID: 249332535064610087, guid: b88acf8b55dccac40b725b8d05258fae,
-    type: 3}
   bloqueVertical: {fileID: 6955094318195595798, guid: 6d3c8664749a74b459549f46aefe0632,
     type: 3}
 --- !u!82 &1026217129
