@@ -9,6 +9,7 @@ public class CentroJuego : MonoBehaviour
     public TextMesh monedaCant;
     float distance;
     public TextMesh Mytimer;
+    float aceleracion = 20f;
    
     public enum EstadoJuego
     {
@@ -65,9 +66,15 @@ public class CentroJuego : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (aceleracion < 120)
+            aceleracion++;
+        //= ACELEPASTTIME;
 
-        distance += -MovimientoPlataforma.velocidad;
-        Mytimer.text = "Puntos: " + ((int)distance).ToString();
+        distance += (aceleracion * Mathf.Pow(Time.fixedDeltaTime,2))/2;
+        Mytimer.text ="Puntos: " + ((int)distance).ToString();
+
+        //distance += -MovimientoPlataforma.velocidad;
+        //Mytimer.text = "Puntos: " + ((int)distance).ToString();
     }
     void CargarMapa()
     {
