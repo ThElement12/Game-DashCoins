@@ -19,12 +19,14 @@ public class CentroJuego : MonoBehaviour
     public static EstadoJuego estado;
     public GameObject background;
     public GameObject bloque;
-    public GameObject bloqueVertical;
+    public GameObject bloqueVertical;  
 
     bool rotar = false;
 
     int platCount = 0;
     public static int puntaje = 0;
+    public static float TotalPlataformas;
+    
 
 
     // Start is called before the first frame update
@@ -79,15 +81,17 @@ public class CentroJuego : MonoBehaviour
     void CargarMapa()
     {
 
-        var contenido = Resources.Load<TextAsset>("Mapa 2"); //+ Random.Range(2,3).ToString());
-        
+        TextAsset[] contenido = { Resources.Load<TextAsset>("Mapa 1"), Resources.Load<TextAsset>("Mapa 2"), Resources.Load<TextAsset>("Mapa 3") }; //+ Random.Range(2,3).ToString());
+        int mapa = Random.Range(0, 3);
+
+        print(mapa);
         
         Quaternion rotacion;
         float i = 0, j = 0;
         GameObject nuevaCelda = null;
 
 
-        foreach (string lineaActual in contenido.text.Split('\n'))
+        foreach (string lineaActual in contenido[mapa].text.Split('\n'))
         {
             foreach(char celdaActual in lineaActual)
             {
@@ -110,6 +114,7 @@ public class CentroJuego : MonoBehaviour
 
                     default:
                         j += 4.25f;
+                        TotalPlataformas += 4.25f;
                         continue;
                 }
 
@@ -120,10 +125,12 @@ public class CentroJuego : MonoBehaviour
                     nuevaCelda.GetComponent<SpriteRenderer>().flipY = true;
                 }
                 j += 4.25f;
+                TotalPlataformas += 4.25f;
                 rotar = false;
             }
             j = 0;
             i+= 3;
+            
 
         }
     }

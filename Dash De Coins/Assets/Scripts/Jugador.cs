@@ -52,7 +52,7 @@ public class Jugador : MonoBehaviour
         {
             velocidadFinal = Vector3.zero;
             cambioPosicion = Vector3.zero;
-
+            
         }
     }
 }
