@@ -22,6 +22,7 @@ public class CentroJuego : MonoBehaviour
     public GameObject bloqueVertical;  
 
     bool rotar = false;
+    bool spike = false;
 
     int platCount = 0;
     public static int puntaje = 0;
@@ -82,7 +83,7 @@ public class CentroJuego : MonoBehaviour
     {
 
         TextAsset[] contenido = { Resources.Load<TextAsset>("Mapa 1"), Resources.Load<TextAsset>("Mapa 2"), Resources.Load<TextAsset>("Mapa 3") }; //+ Random.Range(2,3).ToString());
-        int mapa = Random.Range(0, 3);
+        int mapa = 0;// = Random.Range(0, 3);
 
         print(mapa);
         
@@ -109,9 +110,18 @@ public class CentroJuego : MonoBehaviour
                         nuevaCelda = bloque;
                         rotacion = bloque.transform.rotation;
                         rotar = true;
-                  
                         break;
-
+                    case '-':
+                        nuevaCelda = bloque;
+                        rotacion = bloque.transform.rotation;
+                        spike = true;
+                        rotar = true;
+                        break;
+                    case '*':
+                        nuevaCelda = bloque;
+                        rotacion = bloque.transform.rotation;
+                        spike = true;
+                        break;
                     default:
                         j += 4.25f;
                         TotalPlataformas += 4.25f;
@@ -123,10 +133,17 @@ public class CentroJuego : MonoBehaviour
                 if (rotar)
                 {
                     nuevaCelda.GetComponent<SpriteRenderer>().flipY = true;
+                    rotar = false;
+                }
+                if (spike)
+                {
+                    nuevaCelda.GetComponent<MovimientoPlataforma>().Spikes = true;
+                    spike = false;
                 }
                 j += 4.25f;
                 TotalPlataformas += 4.25f;
-                rotar = false;
+                
+               
             }
             j = 0;
             i+= 3;

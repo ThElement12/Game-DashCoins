@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - Plataforma 90
   - Plataforma Inversa
+  - Obstaculo
   layers:
   - Default
   - TransparentFX

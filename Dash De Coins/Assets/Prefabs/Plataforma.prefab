@@ -107,3 +107,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 273295869024467371, guid: 043fea0226206114ab1c485f250af219, type: 3}
+  puya: {fileID: 4465031960222866845, guid: 700648c4cbdcd9b4d964122dc92ce1b1, type: 3}
+  Spikes: 0
