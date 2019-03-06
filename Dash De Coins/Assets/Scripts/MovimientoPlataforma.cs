@@ -92,4 +92,12 @@ public class MovimientoPlataforma : MonoBehaviour
         
         
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Jugador.isOnPlat = true;
+        }
+    }
 }
