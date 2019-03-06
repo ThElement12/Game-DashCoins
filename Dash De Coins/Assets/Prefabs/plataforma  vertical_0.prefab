@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 273295869024467371, guid: 043fea0226206114ab1c485f250af219, type: 3}
+  puya: {fileID: 0}
+  Spikes: 0
 --- !u!65 &4113804740036395231
 BoxCollider:
   m_ObjectHideFlags: 0

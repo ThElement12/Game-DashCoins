@@ -12,12 +12,7 @@ public class Destroy : MonoBehaviour
         {
             CentroJuego.estado = CentroJuego.EstadoJuego.Fase2;
         }
-        else if(collision.gameObject.tag == "Plataforma")
-        {
-            CentroJuego.TotalPlataformas--;
-        }
-
-
+  
        Destroy(collision.gameObject);
     }
 

@@ -23,7 +23,7 @@ public class Jugador : MonoBehaviour
         { 
             gameObject.GetComponent<SpriteRenderer>().flipY = !gameObject.GetComponent<SpriteRenderer>().flipY;
             direccion *= -1;
-            velocidadFinal = Vector3.zero;
+            
         }
 
         gameObject.transform.Translate(cambioPosicion);

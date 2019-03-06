@@ -38,12 +38,12 @@ public class MovimientoPlataforma : MonoBehaviour
             {
                 if (gameObject.GetComponent<SpriteRenderer>().flipY)
                 {
-                    spike = Instantiate(puya, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1),Quaternion.identity);
+                    spike = Instantiate(puya, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.75f),Quaternion.identity);
                     spike.GetComponent<SpriteRenderer>().flipY = true;
                 }
                 else
                 {
-                    spike = Instantiate(puya, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1), Quaternion.identity);
+                    spike = Instantiate(puya, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.75f), Quaternion.identity);
                 }
                 spike.transform.parent = gameObject.transform;
                 
@@ -84,7 +84,7 @@ public class MovimientoPlataforma : MonoBehaviour
             if (gameObject.transform.position.x <= -17.06028f)
             {
                 Destroy(gameObject);
-
+                
             }
             velocidad -= aceleracion * Time.time;
 

@@ -9,8 +9,14 @@ public class CentroJuego : MonoBehaviour
     public TextMesh monedaCant;
     float distance;
     public TextMesh Mytimer;
+
+
+
     float aceleracion = 20f;
-   
+    float distancia = 6300;
+    float tiempo;
+  
+
     public enum EstadoJuego
     {
         Fase1,
@@ -23,11 +29,12 @@ public class CentroJuego : MonoBehaviour
 
     bool rotar = false;
     bool spike = false;
+    bool primerMapa = true;
 
     int platCount = 0;
     public static int puntaje = 0;
-    public static float TotalPlataformas;
     
+  
 
 
     // Start is called before the first frame update
@@ -36,7 +43,9 @@ public class CentroJuego : MonoBehaviour
         estado = EstadoJuego.Fase1;
         Instantiate(background);
         CargarMapa();
-        
+        primerMapa = false;
+        tiempo = Mathf.Sqrt(2 * distancia * aceleracion) / aceleracion;
+
     }
 
     // Update is called once per frame
@@ -56,9 +65,7 @@ public class CentroJuego : MonoBehaviour
                     platCount--;
                 }
                 monedaCant.text = "Monedas: " + monedas.ToString();
-                //timer = Time.deltaTime;
-                //distance += 0 + (aceleracion * Mathf.Pow(timer,2))/2;
-                //Mytimer.text = distance.ToString();
+                
                 break;
 
             case EstadoJuego.Fase2:
@@ -76,23 +83,31 @@ public class CentroJuego : MonoBehaviour
         distance += (aceleracion * Mathf.Pow(Time.fixedDeltaTime,2))/2;
         Mytimer.text ="Puntos: " + ((int)distance).ToString();
 
+        if(Time.time >= tiempo)
+        {
+            primerMapa = false;
+            CargarMapa();
+            tiempo += Time.time;
+        }
+
         //distance += -MovimientoPlataforma.velocidad;
         //Mytimer.text = "Puntos: " + ((int)distance).ToString();
     }
     void CargarMapa()
     {
 
-        TextAsset[] contenido = { Resources.Load<TextAsset>("Mapa 1"), Resources.Load<TextAsset>("Mapa 2"), Resources.Load<TextAsset>("Mapa 3") }; //+ Random.Range(2,3).ToString());
-        int mapa = 0;// = Random.Range(0, 3);
-
-        print(mapa);
-        
+        var contenido = Resources.Load<TextAsset>("Mapa " + Random.Range(1,4).ToString());        
         Quaternion rotacion;
         float i = 0, j = 0;
         GameObject nuevaCelda = null;
 
+        if (!primerMapa)
+        {
+            j = 15.6f;
+        }
 
-        foreach (string lineaActual in contenido[mapa].text.Split('\n'))
+
+        foreach (string lineaActual in contenido.text.Split('\n'))
         {
             foreach(char celdaActual in lineaActual)
             {
@@ -124,7 +139,7 @@ public class CentroJuego : MonoBehaviour
                         break;
                     default:
                         j += 4.25f;
-                        TotalPlataformas += 4.25f;
+                        
                         continue;
                 }
 
@@ -141,12 +156,17 @@ public class CentroJuego : MonoBehaviour
                     spike = false;
                 }
                 j += 4.25f;
-                TotalPlataformas += 4.25f;
+                
+
                 
                
             }
             j = 0;
-            i+= 3;
+            if (!primerMapa)
+            {
+                j = 15.6f;
+            }
+            i += 3;
             
 
         }
