@@ -18,7 +18,7 @@ public class Jugador : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnPlat)
+        if ((Input.GetKeyDown(KeyCode.Space)|| Input.GetMouseButton(0)) && isOnPlat)
         {
             gameObject.GetComponent<SpriteRenderer>().flipY = !gameObject.GetComponent<SpriteRenderer>().flipY;
             direccion *= -1;

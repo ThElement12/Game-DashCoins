@@ -31,6 +31,8 @@ public class CentroJuego : MonoBehaviour
     bool spike = false;
     bool primerMapa = true;
 
+    float tiempoInicio;
+    float tiempoTranscurrido;
     int platCount = 0;
     public static int puntaje = 0;
     
@@ -39,11 +41,12 @@ public class CentroJuego : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {    
         estado = EstadoJuego.Fase1;
         Instantiate(background);
         CargarMapa();
         primerMapa = false;
+        
         tiempo = Mathf.Sqrt(2 * distancia * aceleracion) / aceleracion;
 
     }
@@ -80,34 +83,36 @@ public class CentroJuego : MonoBehaviour
             aceleracion++;
         //= ACELEPASTTIME;
 
-        distance += (aceleracion * Mathf.Pow(Time.fixedDeltaTime,2))/2;
+        distance += aceleracion * Mathf.Pow(Time.fixedDeltaTime,2)/2;
         Mytimer.text ="Puntos: " + ((int)distance).ToString();
+        tiempoTranscurrido = Time.time - tiempoInicio;
 
-        if(Time.time >= tiempo)
+        if(tiempoTranscurrido >= tiempo)
         {
             primerMapa = false;
             CargarMapa();
-            tiempo += Time.time;
+            //tiempo += Time.time;
         }
 
-        //distance += -MovimientoPlataforma.velocidad;
-        //Mytimer.text = "Puntos: " + ((int)distance).ToString();
     }
     void CargarMapa()
     {
 
-        var contenido = Resources.Load<TextAsset>("Mapa " + Random.Range(1,4).ToString());        
+        TextAsset []contenido= {Resources.Load<TextAsset>("Mapa 1"), Resources.Load<TextAsset>("Mapa 2"), Resources.Load<TextAsset>("Mapa 3") };
         Quaternion rotacion;
+        int mapa = 0;
         float i = 0, j = 0;
         GameObject nuevaCelda = null;
+        tiempoInicio = Time.time;
 
         if (!primerMapa)
         {
+            mapa = Random.Range(0, 3);
             j = 15.6f;
         }
 
 
-        foreach (string lineaActual in contenido.text.Split('\n'))
+        foreach (string lineaActual in contenido[mapa].text.Split('\n'))
         {
             foreach(char celdaActual in lineaActual)
             {
