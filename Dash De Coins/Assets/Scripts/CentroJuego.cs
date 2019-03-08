@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CentroJuego : MonoBehaviour
 {
 
-    public static int monedas = 0;
+    public static int monedas = 0, vidaXmoney = 0, vida = 3;
     public TextMesh monedaCant;
     float distance;
-    public TextMesh Mytimer;
+    public TextMesh Mytimer, myLives;
 
 
 
@@ -20,7 +21,8 @@ public class CentroJuego : MonoBehaviour
     public enum EstadoJuego
     {
         Fase1,
-        Fase2
+        Fase2,
+        Fase3
     };
     public static EstadoJuego estado;
     public GameObject background;
@@ -68,10 +70,28 @@ public class CentroJuego : MonoBehaviour
                     platCount--;
                 }
                 monedaCant.text = "Monedas: " + monedas.ToString();
-                
+
+                if (vidaXmoney == 100)
+                {
+                    vidaXmoney = 0;
+                    vida++;
+                }
                 break;
 
             case EstadoJuego.Fase2:
+                vida--;
+                if (vida == 0)
+                {
+                    estado = EstadoJuego.Fase3;
+                }
+                else
+                {
+                    SceneManager.LoadScene("Dash de Coins");
+                }
+                break;
+
+            case EstadoJuego.Fase3:
+                SceneManager.LoadScene("Final");
                 break;
         }
 
@@ -86,6 +106,7 @@ public class CentroJuego : MonoBehaviour
         distance += aceleracion * Mathf.Pow(Time.fixedDeltaTime,2)/2;
         Mytimer.text ="Puntos: " + ((int)distance).ToString();
         tiempoTranscurrido = Time.time - tiempoInicio;
+        myLives.text = "Vidas: " + vida.ToString();
 
         if(tiempoTranscurrido >= tiempo)
         {

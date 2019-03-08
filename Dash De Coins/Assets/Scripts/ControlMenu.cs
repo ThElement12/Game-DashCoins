@@ -37,7 +37,12 @@ public class ControlMenu : MonoBehaviour
                 break;
             case "Play":
                 SceneManager.LoadScene("Dash de coins");
-
+                break;
+            case "MainMenu":
+                CentroJuego.vida = 3;
+                CentroJuego.vidaXmoney = 0;
+                CentroJuego.monedas = 0;
+                SceneManager.LoadScene("Menu");
                 break;
             //case "Options":
                // GameObject.Find("New Text").GetComponent<MenuControl2>().ShowCanvas();

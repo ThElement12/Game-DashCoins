@@ -45,6 +45,7 @@ public class Jugador : MonoBehaviour
             other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(other.gameObject,2);
             CentroJuego.monedas++;
+            CentroJuego.vidaXmoney++;
             
 
         }
