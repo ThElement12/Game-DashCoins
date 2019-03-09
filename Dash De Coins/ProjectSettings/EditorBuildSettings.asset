@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dash de coins.unity
     guid: d5176d786fd51b54595ba8f6318f9f4f
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: 7e4636a7d53413f4fbbdcb475ea0f41d
   m_configObjects: {}

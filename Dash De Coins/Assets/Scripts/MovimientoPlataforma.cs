@@ -24,11 +24,11 @@ public class MovimientoPlataforma : MonoBehaviour
             {
                 if (gameObject.GetComponent<SpriteRenderer>().flipY)
                 {
-                    moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1), Quaternion.identity);
+                    moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.75f), Quaternion.identity);
                 }
                 else
                 {
-                    moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1), Quaternion.identity);
+                    moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.75f), Quaternion.identity);
                 }
                 moneda.transform.parent = gameObject.transform;
                 
@@ -38,12 +38,12 @@ public class MovimientoPlataforma : MonoBehaviour
             {
                 if (gameObject.GetComponent<SpriteRenderer>().flipY)
                 {
-                    spike = Instantiate(puya, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.75f),Quaternion.identity);
+                    spike = Instantiate(puya, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.50f),Quaternion.identity);
                     spike.GetComponent<SpriteRenderer>().flipY = true;
                 }
                 else
                 {
-                    spike = Instantiate(puya, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.75f), Quaternion.identity);
+                    spike = Instantiate(puya, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.50f), Quaternion.identity);
                 }
                 spike.transform.parent = gameObject.transform;
                 

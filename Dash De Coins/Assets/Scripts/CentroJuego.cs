@@ -14,7 +14,7 @@ public class CentroJuego : MonoBehaviour
 
 
     float aceleracion = 20f;
-    float distancia = 6300;
+    const float _DISTANCIA = 3000;
     float tiempo;
   
 
@@ -49,7 +49,7 @@ public class CentroJuego : MonoBehaviour
         CargarMapa();
         primerMapa = false;
         
-        tiempo = Mathf.Sqrt(2 * distancia * aceleracion) / aceleracion;
+        tiempo = Mathf.Sqrt(2 * _DISTANCIA * aceleracion) / aceleracion;
 
     }
 
@@ -164,7 +164,7 @@ public class CentroJuego : MonoBehaviour
                         spike = true;
                         break;
                     default:
-                        j += 4.25f;
+                        j += 3;
                         
                         continue;
                 }
@@ -181,7 +181,7 @@ public class CentroJuego : MonoBehaviour
                     nuevaCelda.GetComponent<MovimientoPlataforma>().Spikes = true;
                     spike = false;
                 }
-                j += 4.25f;
+                j += 3;
                 
 
                 
@@ -190,7 +190,7 @@ public class CentroJuego : MonoBehaviour
             j = 0;
             if (!primerMapa)
             {
-                j = 15.6f;
+                j = 15.1f;
             }
             i += 3;
             
