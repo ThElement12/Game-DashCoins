@@ -6,18 +6,9 @@ using UnityEngine.SceneManagement;
 public class CentroJuego : MonoBehaviour
 {
 
-    public static int monedas = 0, vidaXmoney = 0, vida = 3;
+    public static int monedas = 0, vida = 3;
     public TextMesh monedaCant;
-    float distance;
     public TextMesh Mytimer, myLives;
-
-
-
-    float aceleracion = 20f;
-    const float _DISTANCIA = 3000;
-    float tiempo;
-  
-
     public enum EstadoJuego
     {
         Fase1,
@@ -27,7 +18,14 @@ public class CentroJuego : MonoBehaviour
     public static EstadoJuego estado;
     public GameObject background;
     public GameObject bloque;
-    public GameObject bloqueVertical;  
+    public GameObject bloqueVertical;
+    public static int puntaje = 0;
+
+
+    float distance;
+    float aceleracion = 20f;
+    const float _DISTANCIA = 3000;
+    float tiempo;
 
     bool rotar = false;
     bool spike = false;
@@ -36,10 +34,9 @@ public class CentroJuego : MonoBehaviour
     float tiempoInicio;
     float tiempoTranscurrido;
     int platCount = 0;
-    public static int puntaje = 0;
-    
-  
 
+    bool extraLife = false;
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -71,10 +68,18 @@ public class CentroJuego : MonoBehaviour
                 }
                 monedaCant.text = "Monedas: " + monedas.ToString();
 
-                if (vidaXmoney == 100)
+                if (monedas %100 == 0)
                 {
-                    vidaXmoney = 0;
-                    vida++;
+                    if (!extraLife)
+                    {
+                        vida++;
+                        extraLife = true;
+                    }
+                    
+                }
+                else
+                {
+                    extraLife = false;
                 }
                 break;
 
@@ -128,7 +133,7 @@ public class CentroJuego : MonoBehaviour
 
         if (!primerMapa)
         {
-            mapa = Random.Range(0, 3);
+            mapa = Random.Range(0,3);
             j = 15.6f;
         }
 

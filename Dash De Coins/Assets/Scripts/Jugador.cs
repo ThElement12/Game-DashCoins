@@ -11,10 +11,6 @@ public class Jugador : MonoBehaviour
 
     const float gravity = 11.8f;
     private AudioSource audio;
-    private void Start()
-    {
-       
-    }
 
     private void Update()
     {
@@ -45,9 +41,7 @@ public class Jugador : MonoBehaviour
             other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(other.gameObject,2);
             CentroJuego.monedas++;
-            CentroJuego.vidaXmoney++;
-            
-
+         
         }
 
     } 
@@ -59,5 +53,6 @@ public class Jugador : MonoBehaviour
             cambioPosicion = Vector3.zero;
             
         }
+
     }
 }

@@ -5,18 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ControlMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
     private void OnMouseEnter()
     {
@@ -40,7 +28,6 @@ public class ControlMenu : MonoBehaviour
                 break;
             case "MainMenu":
                 CentroJuego.vida = 3;
-                CentroJuego.vidaXmoney = 0;
                 CentroJuego.monedas = 0;
                 SceneManager.LoadScene("Menu");
                 break;
