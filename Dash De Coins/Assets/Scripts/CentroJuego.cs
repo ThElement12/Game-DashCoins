@@ -8,7 +8,8 @@ public class CentroJuego : MonoBehaviour
 
     public static int monedas = 0, vida = 3;
     public TextMesh monedaCant;
-    public TextMesh Mytimer, myLives;
+    public TextMesh Mytimer, myLives, power;
+
     public enum EstadoJuego
     {
         Fase1,
@@ -30,10 +31,13 @@ public class CentroJuego : MonoBehaviour
     bool rotar = false;
     bool spike = false;
     bool primerMapa = true;
+    public static bool hayPower = false;
 
     float tiempoInicio;
     float tiempoTranscurrido;
     int platCount = 0;
+    float countDown = 20.0f;
+    public static int powerUpActual = 1;
 
     bool extraLife = false;
  
@@ -43,6 +47,10 @@ public class CentroJuego : MonoBehaviour
     {    
         estado = EstadoJuego.Fase1;
         Instantiate(background);
+        if (!hayPower)
+        {
+            hayPower = true;
+        }
         CargarMapa();
         primerMapa = false;
         
@@ -67,6 +75,19 @@ public class CentroJuego : MonoBehaviour
                     platCount--;
                 }
                 monedaCant.text = "Monedas: " + monedas.ToString();
+
+                if (powerUpActual > 1)
+                {
+                    countDown -= Time.deltaTime;
+
+                    power.text = "POWERUP!!!!: " + countDown.ToString("N2");
+                    if(countDown <= 0)
+                    {
+                        powerUpActual = 1;
+                        countDown = 20.0f;
+                        power.text = " ";
+                    }
+                }
 
                 if (monedas %100 == 0)
                 {
@@ -117,6 +138,10 @@ public class CentroJuego : MonoBehaviour
         {
             primerMapa = false;
             CargarMapa();
+            if (!hayPower)
+            {
+                hayPower = true;
+            }
             //tiempo += Time.time;
         }
 

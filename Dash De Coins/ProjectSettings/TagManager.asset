@@ -9,6 +9,7 @@ TagManager:
   - Plataforma 90
   - Plataforma Inversa
   - Obstaculo
+  - PowerUp
   layers:
   - Default
   - TransparentFX

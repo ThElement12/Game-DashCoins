@@ -37,8 +37,27 @@ public class Jugador : MonoBehaviour
             audio.Play();
             other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(other.gameObject,2);
-            CentroJuego.monedas++;
+            CentroJuego.monedas += CentroJuego.powerUpActual ;
          
+        }
+        if(other.gameObject.tag == "PowerUp")
+        {
+            audio = other.GetComponent<AudioSource>();
+            audio.Play();
+            other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(other.gameObject, 2);
+            switch (other.gameObject.name)
+            {
+                case "PowerX2(Clone)":
+                    CentroJuego.powerUpActual = 2;
+                    break;
+                case "PowerX3(Clone)":
+                    CentroJuego.powerUpActual = 3; 
+                    break;
+                case "PowerX4(Clone)":
+                    CentroJuego.powerUpActual = 4;
+                    break;
+            }
         }
 
     } 

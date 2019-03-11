@@ -108,4 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin: {fileID: 273295869024467371, guid: 043fea0226206114ab1c485f250af219, type: 3}
   puya: {fileID: 4465031960222866845, guid: 700648c4cbdcd9b4d964122dc92ce1b1, type: 3}
+  powerUps:
+  - {fileID: 5394945220300002278, guid: 5e44fb0cc7f19ac43a7a85dfcddfca59, type: 3}
+  - {fileID: 4336022850663885354, guid: 952a9f36675882a4e81d02d9b434607d, type: 3}
+  - {fileID: 676152755102741119, guid: cc51f753247d4c144aaf8953d4cb6682, type: 3}
   Spikes: 0

@@ -6,9 +6,13 @@ public class MovimientoPlataforma : MonoBehaviour
 {
     public GameObject coin;
     public GameObject puya;
+    public GameObject[] powerUps = new GameObject[3];
+    GameObject powerUp;
     GameObject moneda;
     GameObject spike;
     int probMoneda;
+    int probPowerUp;
+    int posicionPower;
   
     public static float aceleracion = 0.00000003f;
     public static float velocidad = -10;
@@ -25,18 +29,37 @@ public class MovimientoPlataforma : MonoBehaviour
             probMoneda = Random.Range(1, 5);
             if (probMoneda < 3 && !Spikes)
             {
-                if (gameObject.GetComponent<SpriteRenderer>().flipY)
+                probPowerUp = Random.Range(1, 100);
+                if(probPowerUp < 9 && CentroJuego.hayPower && CentroJuego.powerUpActual == 1)
                 {
-                    moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.75f), Quaternion.identity);
+                   
+                    posicionPower = Random.Range(0, 3);
+                    if (gameObject.GetComponent<SpriteRenderer>().flipY)
+                    {
+                        powerUp = Instantiate(powerUps[posicionPower], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.75f), Quaternion.identity);
+                    }
+                    else
+                    {
+                        powerUp = Instantiate(powerUps[posicionPower], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.75f), Quaternion.identity);
+                    }
+                    powerUp.transform.parent = gameObject.transform;
+                    CentroJuego.hayPower = false;
                 }
                 else
                 {
-                    moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.75f), Quaternion.identity);
+                    if (gameObject.GetComponent<SpriteRenderer>().flipY)
+                    {
+                        moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.75f), Quaternion.identity);
+                    }
+                    else
+                    {
+                        moneda = Instantiate(coin, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.75f), Quaternion.identity);
+                    }
+                    moneda.transform.parent = gameObject.transform;
                 }
-                moneda.transform.parent = gameObject.transform;
-                
 
             }
+           
             if (Spikes)
             {
                 if (gameObject.GetComponent<SpriteRenderer>().flipY)
@@ -94,8 +117,8 @@ public class MovimientoPlataforma : MonoBehaviour
         }
         if(Time.time >= nextUpdate)
         {
-          velocidad -= aceleracion * Time.time;
-            nextUpdate += intervalo;
+          velocidad -= aceleracion;
+          nextUpdate += intervalo;
         }
         
     }
