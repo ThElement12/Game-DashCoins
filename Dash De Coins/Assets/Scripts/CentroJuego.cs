@@ -24,7 +24,7 @@ public class CentroJuego : MonoBehaviour
 
     float distance;
     float aceleracion = 20f;
-    const float _DISTANCIA = 222222.2222f;
+    const float _DISTANCIA = 3000;
     float tiempo;
 
     bool rotar = false;
@@ -46,7 +46,7 @@ public class CentroJuego : MonoBehaviour
         CargarMapa();
         primerMapa = false;
         
-        tiempo = Mathf.Sqrt(2 * _DISTANCIA * MovimientoPlataforma.aceleracion) / MovimientoPlataforma.aceleracion;
+        tiempo = Mathf.Sqrt(2 * _DISTANCIA * aceleracion) / aceleracion;
 
     }
 

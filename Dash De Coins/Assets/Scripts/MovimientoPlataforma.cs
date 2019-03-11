@@ -48,9 +48,14 @@ public class MovimientoPlataforma : MonoBehaviour
                 spike.transform.parent = gameObject.transform;
                 
             }
+            //InvokeRepeating("Faster", 0, 1.0f);
         }
         
         
+    }
+    private void Faster()
+    {
+        velocidad -= aceleracion * Time.time;
     }
    
     private void FixedUpdate()
@@ -89,8 +94,8 @@ public class MovimientoPlataforma : MonoBehaviour
             velocidad -= aceleracion * Time.time;
 
         }
-        
-        
+
+        //velocidad -= aceleracion * Time.time;
     }
 
     private void OnCollisionEnter(Collision collision)

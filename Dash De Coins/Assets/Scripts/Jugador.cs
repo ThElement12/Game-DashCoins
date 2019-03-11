@@ -28,9 +28,6 @@ public class Jugador : MonoBehaviour
 
         gameObject.transform.Translate(cambioPosicion);
         velocidadFinal += direccion * Physics.gravity * Time.deltaTime;
-        
-        
-          
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -51,7 +48,6 @@ public class Jugador : MonoBehaviour
         {
             velocidadFinal = Vector3.zero;
             cambioPosicion = Vector3.zero;
-            
         }
 
     }
