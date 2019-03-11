@@ -13,6 +13,9 @@ public class MovimientoPlataforma : MonoBehaviour
     public static float aceleracion = 0.00000003f;
     public static float velocidad = -10;
     public bool Spikes = false;
+
+    int intervalo = 1;
+    float nextUpdate = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -52,12 +55,7 @@ public class MovimientoPlataforma : MonoBehaviour
         }
         
         
-    }
-    private void Faster()
-    {
-        velocidad -= aceleracion * Time.time;
-    }
-   
+    }   
     private void FixedUpdate()
     {
         if(gameObject.tag == "Plataforma 90"){
@@ -68,7 +66,7 @@ public class MovimientoPlataforma : MonoBehaviour
                 Destroy(gameObject);
 
             }
-            velocidad -= aceleracion * Time.time;
+           // velocidad -= aceleracion * Time.time;
 
         }
         else if(gameObject.tag == "Plataforma Inversa")
@@ -80,7 +78,7 @@ public class MovimientoPlataforma : MonoBehaviour
                 Destroy(gameObject);
 
             }
-            velocidad -= aceleracion * Time.time;
+          //  velocidad -= aceleracion * Time.time;
         }
         else
         {
@@ -91,11 +89,15 @@ public class MovimientoPlataforma : MonoBehaviour
                 Destroy(gameObject);
                 
             }
-            velocidad -= aceleracion * Time.time;
+         //   velocidad -= aceleracion * Time.time;
 
         }
-
-        //velocidad -= aceleracion * Time.time;
+        if(Time.time >= nextUpdate)
+        {
+          velocidad -= aceleracion * Time.time;
+            nextUpdate += intervalo;
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
