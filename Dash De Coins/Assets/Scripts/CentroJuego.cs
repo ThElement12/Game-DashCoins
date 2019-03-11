@@ -80,7 +80,7 @@ public class CentroJuego : MonoBehaviour
                 {
                     countDown -= Time.deltaTime;
 
-                    power.text = "POWERUP!!!!: " + countDown.ToString("N2");
+                    power.text = "POWERUP!!!! " + "X" + powerUpActual.ToString() + ": " + countDown.ToString("N2");
                     if(countDown <= 0)
                     {
                         powerUpActual = 1;
