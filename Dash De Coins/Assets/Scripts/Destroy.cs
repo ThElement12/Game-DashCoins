@@ -11,6 +11,7 @@ public class Destroy : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             CentroJuego.estado = CentroJuego.EstadoJuego.Fase2;
+            CentroJuego.powerUpActual = 1;
         }
   
        Destroy(collision.gameObject);

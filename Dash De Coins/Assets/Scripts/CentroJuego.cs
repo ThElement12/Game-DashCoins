@@ -89,7 +89,7 @@ public class CentroJuego : MonoBehaviour
                     }
                 }
 
-                if (monedas %100 == 0)
+                if (monedas % 100 == 0)
                 {
                     if (!extraLife)
                     {
